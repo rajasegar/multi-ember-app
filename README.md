@@ -1,6 +1,8 @@
 # multi-ember-app
 This is a sample repo for testing out multiple [Ember.js](https://emberjs.com) apps in a single html page.
 
+[Demo](https://multi-ember-app.surge.sh) here.
+
 This is inspired by the [single-spa](https://single-spa.js.org/) library of how we can dynamically mount and unmount Ember.js apps in a page.
 
 I have recreated all the lifecycle hooks of single-spa like
@@ -28,3 +30,4 @@ servor .
 - ~~Use Different Ember versions to mimic real-world scenarios. At present both the Ember apps are using the same version: 3.19~~
 - Apply common css to both Ember apps
 - Test with `locationType:auto` for both Ember apps
+- Fix Ember destroy errors while unmounting apps
