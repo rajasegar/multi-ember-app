@@ -1,0 +1,21 @@
+{
+  "name": "multi-ember-app",
+  "version": "1.0.0",
+  "description": "This is a sample repo for testing out multiple [Ember.js](https://emberjs.com) apps in a single html page.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "surge . multi-ember-app.surge.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajasegar/multi-ember-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rajasegar/multi-ember-app/issues"
+  },
+  "homepage": "https://github.com/rajasegar/multi-ember-app#readme"
+}

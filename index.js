@@ -1,4 +1,4 @@
-console.log('hello');
+console.log('Multi-Ember-App');
 
 let peopleApp, planetsApp;
 let peopleOpts, planetsOpts;
@@ -71,13 +71,13 @@ function loadEmberApp(appName, appUrl, vendorUrl = null) {
 btnBootstrapPeople.addEventListener('click', (ev) => {
   console.log('Bootstrap People');
   loadEmberApp('people',
-    '//localhost:4201/people/assets/people.js',
-    '//localhost:4201/people/assets/vendor.js'
+    './js/people/people.js',
+    './js/people/vendor.js'
   ).then(app => {
     ev.target.disabled = true;
     btnMountPeople.disabled = false;
-    console.log(loader.__aliases);
     window.peopleLoader = loader;
+    window.peopleEmber = Ember;
     peopleApp = app.default;
   });
 
@@ -86,13 +86,13 @@ btnBootstrapPeople.addEventListener('click', (ev) => {
 btnBootstrapPlanets.addEventListener('click', (ev) => {
   console.log('Bootstrap Planets');
   loadEmberApp('planets',
-    '//localhost:4202/planets/assets/planets.js',
-    '//localhost:4202/planets/assets/vendor.js'
+    './js/planets/planets.js',
+    './js/planets/vendor.js'
   ).then(app => {
-    console.log(loader.__aliases);
     ev.target.disabled = true;
     btnMountPlanets.disabled = false;
     window.planetsLoader = loader;
+    window.planetsEmber = Ember;
     planetsApp = app.default;
   });
 });
@@ -107,6 +107,7 @@ btnMountPeople.addEventListener('click', (ev) => {
     }
   };
   window.loader = window.peopleLoader;
+  window.Ember = window.peopleEmber;
   mount(peopleOpts).then(() => {
     ev.target.disabled = true;
     btnUnmountPeople.disabled = false;
@@ -118,6 +119,7 @@ btnUnmountPeople.addEventListener('click', (ev) => {
   unmount(peopleOpts).then(() => {
     ev.target.disabled = true;
     btnMountPeople.disabled = false;
+    delete window.Ember;
   });
 });
 btnMountPlanets.addEventListener('click', (ev) => {
@@ -131,6 +133,7 @@ planetsOpts = {
 };
   console.log('Mount Planets');
   window.loader = window.planetsLoader;
+  window.Ember = window.planetsEmber;
 mount(planetsOpts).then(() => {
   ev.target.disabled = true;
   btnUnmountPlanets.disabled = false;
@@ -141,5 +144,6 @@ btnUnmountPlanets.addEventListener('click', (ev) => {
   unmount(planetsOpts).then(() => {
     ev.target.disabled = true;
     btnMountPlanets.disabled = false;
+    delete window.Ember;
   });
 });

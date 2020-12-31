@@ -24,5 +24,7 @@ servor .
 ```
 
 ## Things to do
-- Host the planets and people app somewhere, or if possible reuse the existing ones from [Ember MicroFrontends](https://github.com/ember-micro-frontends).
-- Use Different Ember versions to mimic real-world scenarios. At present both the Ember apps are using the same version: 3.19
+- ~~Host the planets and people app somewhere, or if possible reuse the existing ones from [Ember MicroFrontends](https://github.com/ember-micro-frontends).~~
+- ~~Use Different Ember versions to mimic real-world scenarios. At present both the Ember apps are using the same version: 3.19~~
+- Apply common css to both Ember apps
+- Test with `locationType:auto` for both Ember apps
